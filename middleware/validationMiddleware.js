@@ -1,3 +1,6 @@
+import pkg from 'joi-translation-pt-br';
+const {messages} = pkg;
+
 const validation = (schema) => {
     return (req, res, next) => 
     {

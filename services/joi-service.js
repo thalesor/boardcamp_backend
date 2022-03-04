@@ -1,7 +1,4 @@
 import Joi from 'joi';
-import pkg from 'joi-translation-pt-br';
-
-const {messages} = pkg;
 
 const categorySchema = Joi.object({
   name: Joi.string().trim().min(4).required().label("Nome da categoria"),
@@ -17,9 +14,9 @@ const gameSchema = Joi.object({
 
   const customerSchema = Joi.object({
     name: Joi.string().trim().min(5).required().label("Nome do cliente"),
-    phone: Joi.string().required().label("Telefone"),
-    cpf: Joi.string().trim().required().label("CPF"),
-    birthday: Joi.string().required().label("Data de nascimento")
+    phone: Joi.string().required().min(10).max(11).label("Telefone"),
+    cpf: Joi.string().trim().min(11).max(11).required().label("CPF"),
+    birthday: Joi.date().required().label("Data de nascimento")
   });
 
   const rentalSchema = Joi.object({
