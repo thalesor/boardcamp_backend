@@ -13,6 +13,7 @@ const gameSchema = Joi.object({
   });
 
   const customerSchema = Joi.object({
+    id: Joi.number().positive().label("ID"),
     name: Joi.string().trim().min(5).required().label("Nome do cliente"),
     phone: Joi.string().required().min(10).max(11).label("Telefone"),
     cpf: Joi.string().trim().min(11).max(11).required().label("CPF"),

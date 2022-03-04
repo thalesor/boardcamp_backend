@@ -9,6 +9,12 @@ const validation = (schema) => {
             data = req.headers.data;
         else if(req.method === 'POST')
             data = req.body;
+            else if(req.method === 'PUT')
+            {
+                data = req.body;
+                data.id = req.params.id;
+            }
+            
 
         const validation = schema.validate(data, { messages, abortEarly: false });
         if(validation.error)

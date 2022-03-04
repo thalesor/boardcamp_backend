@@ -3,8 +3,7 @@ import cors from "cors";
 
 import { getCategories, postCategory } from "./controllers/categoryController.js";
 import { getGames, postGame } from "./controllers/gameController.js";
-import { getCustomers } from "./controllers/customerController.js";
-//import { getCustomers, getCustomer, postCustomer, updateCustomer } from "./controllers/customerController.js";
+import { getCustomers, getCustomer, postCustomer, updateCustomer } from "./controllers/customerController.js";
 import { getRentals, postRental, finishRental, deleteRental } from "./controllers/rentalController.js";
 
 import { categorySchema, customerSchema, gameSchema, rentalSchema } from "./services/joi-service.js";
@@ -20,9 +19,9 @@ app.get("/categories", getCategories);
 app.post("/games", validation(gameSchema), postGame);
 app.get("/games", getGames);
 app.get("/customers", getCustomers);
-//app.get("/customers/:id", getCustomer);
-//app.post("/customers", validation(customerSchema), postCustomer);
-//app.put("/customers/:id", updateCustomer);
+app.get("/customers/:id", getCustomer);
+app.post("/customers", validation(customerSchema), postCustomer);
+app.put("/customers/:id", validation(customerSchema), updateCustomer);
 app.get("/rentals", getRentals);
 app.post("/rentals", validation(rentalSchema), postRental);
 app.get("/rentals/:id/return", validation(rentalSchema), finishRental);
