@@ -6,9 +6,9 @@ const categorySchema = Joi.object({
 
 const gameSchema = Joi.object({
     name: Joi.string().trim().min(4).required().label("Nome do jogo"),
-    imageUrl: Joi.string().trim().required().label("URL da imagem"),
+    image: Joi.string().trim().required().label("URL da imagem"),
     stockTotal: Joi.number().positive().required().label("Em estoque"),
-    idCategory: Joi.number().positive().required().label("Categoria"),
+    categoryId: Joi.number().positive().required().label("Categoria"),
     pricePerDay: Joi.number().positive().required().label("Preço por dia")
   });
 
