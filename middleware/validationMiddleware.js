@@ -22,7 +22,7 @@ const validation = (schema) => {
             const errors = validation.error.details.map(err => `*${err.message} 
                 
                 `);
-            res.status(422).send(`Erros durante a validação dos dados no servidor:
+            res.status(400).send(`Erros durante a validação dos dados no servidor:
             ${errors}`);
             return;
         }

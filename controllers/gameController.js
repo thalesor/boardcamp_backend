@@ -8,8 +8,8 @@ async function getGames(req, res)
         if(name)
         {
             result = await db.query(`SELECT g.*, c.name AS "categoryName" FROM categories c INNER JOIN games g ON g."categoryId" = c.id
-            WHERE g.name LIKE '$1%'
-        ;`, [name]);
+            WHERE LOWER(g.name) LIKE $1
+        ;`, [`%${name}%`]);
         }
         else
         result = await db.query(`SELECT g.*, c.name AS "categoryName" FROM categories c INNER JOIN games g ON g."categoryId" = c.id;`);

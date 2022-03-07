@@ -23,11 +23,7 @@ const gameSchema = Joi.object({
   const rentalSchema = Joi.object({
     customerId: Joi.number().positive().required().label("Cliente"),
     gameId: Joi.number().positive().required().label("Jogo"),
-    rentDate: Joi.string().trim().required().label("Data do aluguel"),
     daysRented: Joi.number().positive().required().label("Período de aluguel"),
-    returnDate: Joi.string().trim().label("Data da devolução"),
-    originalPrice: Joi.number().positive().required().label("Preço total do aluguel"),
-    delayFee: Joi.number().positive().label("Total da multa por atraso")
   });
 
 export {

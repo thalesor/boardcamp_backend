@@ -24,7 +24,7 @@ app.post("/customers", validation(customerSchema), postCustomer);
 app.put("/customers/:id", validation(customerSchema), updateCustomer);
 app.get("/rentals", getRentals);
 app.post("/rentals", validation(rentalSchema), postRental);
-app.get("/rentals/:id/return", validation(rentalSchema), finishRental);
+app.post("/rentals/:id/return", finishRental);
 app.delete("/rentals/:id", deleteRental);
 
 app.listen(process.env.PORT || 4000, function(){
